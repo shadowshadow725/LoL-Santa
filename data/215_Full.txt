@@ -1,0 +1,35 @@
+POST https://na.store.leagueoflegends.com/storefront/v3/gift?language=en_US HTTP/1.1
+Host: na.store.leagueoflegends.com
+Connection: keep-alive
+Content-Length: 185
+sec-ch-ua: "Chromium";v="91"
+X-B3-TraceId: E25038455DEB0B080E9E7C38EC469B8B
+sec-ch-ua-mobile: ?0
+AUTHORIZATION: Bearer eyJraWQiOiJzMSIsInR5cCI6ImF0K2p3dCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI5YTQ5MGYxYS0wNTk2LTVmNmUtOTZjZC1iYzRlYzgwMzFiYzUiLCJzY3AiOlsib3BlbmlkIiwib2ZmbGluZV9hY2Nlc3MiLCJsb2wiLCJiYW4iLCJwcm9maWxlIiwiZW1haWwiLCJwaG9uZSIsImJpcnRoZGF0ZSIsInN1bW1vbmVyIl0sImNsbSI6WyJwdyIsImxvbCIsIm9yaWdpbmFsX3BsYXRmb3JtX2lkIiwib3JpZ2luYWxfYWNjb3VudF9pZCIsImJhbiIsImFjY3RfZ250IiwibG9sX2FjY291bnQiLCJvcGVuaWQiLCJwaG90byIsInJlZ2lvbiIsInB2cG5ldF9hY2NvdW50X2lkIiwicmduX05BMSIsImFjY3QiLCJ1c2VybmFtZSIsIiFfdjhIIl0sImRhdCI6eyJyIjoiTkExIiwiYyI6InVlMSIsInUiOjUxNDU3MTE5LCJsaWQiOiJhdmpSeFVfbFBYbmsxRGtxbjRKOW5BIn0sImlzcyI6Imh0dHBzOlwvXC9hdXRoLnJpb3RnYW1lcy5jb20iLCJleHAiOjE2NDkxODg4ODMsImlhdCI6MTY0OTE4NTI4MywianRpIjoiRWhwS2NaamtLNDAiLCJjaWQiOiJsb2wifQ.I0ylQlbxsN_yRklCDqu0KIqX-8MHMnS9pNDDF8bjYknYY1liObo1on_MZ0446sAJeNa3EbIkIcc7KTgiG_nMJOtnUubjtFAklYvWUVKHy0m9bAo9FIbol0oJ1LzMmbZpeKRmvmyLJb6r_3BN2_nXuMB7zFVlOcgwm1BJLkqtMBQ
+Content-Type: application/json
+Accept: application/json
+X-B3-SpanId: 2B157F47FA546554
+X-Requested-With: XMLHttpRequest
+User-Agent: LeagueOfLegendsClient/12.6.430.6775 (CEF 91)
+Cookie: ping_session_id=2790d696-9687-434a-868e-89d849d68626; __cf_bm=rOrF9VXOp8REfhVjMe835V9ooNMHg5pthnkjYx7bh1I-1649185336-0-AakOiUtBO59RgVo+NBCbkdDhkq7FEhVw65wsXT2e2XrcKkfqLwfhhUK0KyNQrj4Rghy2cXyke2Xrq1E1y6Qo4QA=
+Origin: https://na.store.leagueoflegends.com
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://na.store.leagueoflegends.com/storefront/ui/v1/app.html?language=en_US&port=53861&clientRegion=na&selectedItems=&page=featured&recipientSummonerId=
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+{"customMessage":"","receiverSummonerId":48960724,"giftItemId":1010,"accountId":51457119,"items":[{"inventoryType":"BUNDLES","itemId":69900366,"ipCost":null,"rpCost":250,"quantity":1}]}
+HTTP/1.1 400 Bad Request
+Date: Tue, 05 Apr 2022 19:03:44 GMT
+Content-Type: application/json
+Content-Length: 140
+Connection: keep-alive
+Vary: Accept-Encoding
+CF-Cache-Status: DYNAMIC
+Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+Server: cloudflare
+CF-RAY: 6f748ba46b08a1ed-YYZ
+
+{"httpStatus":400,"errorCode":"BAD_ENTITY_PARAMETER","message":"[\"GIFT_RECIPIENT_INELIGIBLE_GENERAL\"]","implementationDetails":"filtered"}
