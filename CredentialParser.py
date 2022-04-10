@@ -10,7 +10,7 @@ def getCreds(filename: str) -> Tuple[List, List]:
             if dat:
                 line = i.split(':')
                 lines.append((line[0], line[1]))
-        return user, pwd
+        return lines
     except:
         return None, None
 
