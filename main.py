@@ -31,18 +31,16 @@ if __name__ == "__main__":
         print(riot_client_port)
         print(riot_client_auth)
         riotClientLogin(riot_client_port, riot_client_auth, usr, pwd)
-        time.sleep(5)
-
+        time.sleep(8)
         port, auth, pid = getEndpoint()
-        token = getUserToken(port, auth, usr, pwd)
+        print(port, auth, pid)
+        token = getUserToken(port, auth)
         print(token)
-        time.sleep(5)
-
-
+        time.sleep(10)
         response_code = friendAdd(port, auth, target_friend)
         if response_code == 200:
             print("add success")
 
-        # os.kill(int(pid), signal.SIGTERM)
+        os.kill(int(pid), signal.SIGTERM)
 
 

@@ -3,7 +3,7 @@ import requests
 
 
 def friendAdd(port, token, target_friend):
-    url = 'https://127.0.0.1:' + port + '/lol-chat/v1/friends-requests'
+    url = 'https://127.0.0.1:' + port + '/lol-chat/v1/friend-requests'
     header = getHeader(port, token)
     body = {
         "name": target_friend

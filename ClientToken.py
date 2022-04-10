@@ -34,7 +34,7 @@ def getEndpoint():
     if len(port) > 1:
         exit(1)
     port = port[0].replace("--app-port=", "")
-    pid = re.findall(r"--app-pid=[\w-]*", args)
+    pid = re.findall(r"--app-pid=[\d-]*", args)
     if len(pid) > 1:
         exit(1)
     pid = pid[0].replace("--app-pid=", "")
