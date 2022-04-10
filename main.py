@@ -34,7 +34,10 @@ if __name__ == "__main__":
         riot_client_port, riot_client_auth, riot_pid = getRiotClientEndpoint()
         riotClientLogin(riot_client_port, riot_client_auth, usr, pwd)
         time.sleep(2)
-        checkAndAcceptEULA(riot_client_port, riot_client_auth)
+        try:
+            checkAndAcceptEULA(riot_client_port, riot_client_auth)
+        except:
+            print("already accepted eula")
         time.sleep(10)
         port, auth, pid = getEndpoint()
         token = getUserToken(port, auth)
