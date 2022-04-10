@@ -43,4 +43,4 @@ def riotClientLogin(port, token, user, pwd):
     header = getHeader(port, token)
 
     response = requests.put(uri, json=payload, verify=False, headers=header)
-    print(response.json())
+

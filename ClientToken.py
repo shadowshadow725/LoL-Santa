@@ -13,6 +13,10 @@ def getRiotClientEndpoint():
         exit(1)
     port = port[0].replace("--app-port=", "")
 
+    pid = re.findall(r"--app-pid=[\d-]*", args)
+    if len(pid) > 1:
+        exit(1)
+
     auth_token = re.findall(r"--remoting-auth-token=[\w-]*", args)
     if len(auth_token) > 1:
         exit(1)
@@ -24,7 +28,7 @@ def getRiotClientEndpoint():
     base64_bytes = base64.b64encode(message_bytes).decode('ascii')
 
     # print(port, base64_bytes)
-    return port, base64_bytes
+    return port, base64_bytes, pid
 
 
 def getEndpoint():

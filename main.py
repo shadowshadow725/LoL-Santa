@@ -22,14 +22,17 @@ if __name__ == "__main__":
     # user_token = token['token']
     # print(user_token)
 
+
+
     creds = getCreds('message.txt')
     target_friend = 'shadow725na'
     for usr, pwd in creds:
         os.system('"E:/Riot games/League of Legends/LeagueClient.exe"')
-        time.sleep(3)
-        riot_client_port, riot_client_auth = getRiotClientEndpoint()
+        time.sleep(5)
+        riot_client_port, riot_client_auth, riot_pid = getRiotClientEndpoint()
         riotClientLogin(riot_client_port, riot_client_auth, usr, pwd)
-        time.sleep(8)
+        checkAndAcceptEULA(riot_client_port, riot_client_auth)
+        time.sleep(10)
         port, auth, pid = getEndpoint()
         token = getUserToken(port, auth)
         time.sleep(12)
