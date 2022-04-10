@@ -38,7 +38,7 @@ def checkAndAcceptEULA(port, token):
     resp_body = response.json()
     if resp_body['acceptance'] == 'Accepted':
         return
-    accept_url = 'https://127.0.0.1:' + port + 'eula/v1/agreement/acceptance'
+    accept_url = 'https://127.0.0.1:' + port + '/eula/v1/agreement/acceptance'
     response = requests.put(accept_url, headers=header, timeout=2.5, verify=False)
     if response.status_code == 201:
         print('eula accept successd')

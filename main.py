@@ -21,8 +21,10 @@ if __name__ == "__main__":
     # token = getUserToken(port, auth, usr, pwd)
     # user_token = token['token']
     # print(user_token)
-
-
+    # riot_client_port, riot_client_auth, riot_pid = getRiotClientEndpoint()
+    # time.sleep(3)
+    # checkAndAcceptEULA(riot_client_port, riot_client_auth)
+    # exit(0)
 
     creds = getCreds('message.txt')
     target_friend = 'shadow725na'
@@ -31,6 +33,7 @@ if __name__ == "__main__":
         time.sleep(5)
         riot_client_port, riot_client_auth, riot_pid = getRiotClientEndpoint()
         riotClientLogin(riot_client_port, riot_client_auth, usr, pwd)
+        time.sleep(2)
         checkAndAcceptEULA(riot_client_port, riot_client_auth)
         time.sleep(10)
         port, auth, pid = getEndpoint()
