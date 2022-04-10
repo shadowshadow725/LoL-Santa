@@ -28,19 +28,15 @@ if __name__ == "__main__":
         os.system('"E:/Riot games/League of Legends/LeagueClient.exe"')
         time.sleep(3)
         riot_client_port, riot_client_auth = getRiotClientEndpoint()
-        print(riot_client_port)
-        print(riot_client_auth)
         riotClientLogin(riot_client_port, riot_client_auth, usr, pwd)
         time.sleep(8)
         port, auth, pid = getEndpoint()
-        print(port, auth, pid)
         token = getUserToken(port, auth)
-        print(token)
-        time.sleep(10)
+        time.sleep(12)
         response_code = friendAdd(port, auth, target_friend)
         if response_code == 200:
             print("add success")
 
         os.kill(int(pid), signal.SIGTERM)
-
+        time.sleep(5)
 
