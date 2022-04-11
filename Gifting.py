@@ -36,6 +36,8 @@ def createGiftHeader(token):
 def giftUser(usr, pwd, target_summonerid):
     url = "https://na.store.leagueoflegends.com/storefront/v3/gift?language=en_US"
     port, auth, pid = getEndpoint()
+    print('client port', port)
+    deleteAuth(port, auth)
     login_response = console_login(port, auth, usr, pwd)
     print(login_response)
     accountid = login_response['currentAccountId']
@@ -46,7 +48,7 @@ def giftUser(usr, pwd, target_summonerid):
     giftBody = createGiftBody(69900366, 250, target_summonerid, accountid)
     giftHeader = createGiftHeader(user_token)
     response = requests.post(url, json=giftBody, verify=False, headers=giftHeader)
-    deleteAuth(port, auth)
+
     return response
 
 
