@@ -14,6 +14,7 @@ def console_login(port, token, user, pwd):
     print(response.json())
     if response.status_code != 200:
         exit(1)
+    return response.json()
 
 
 def getUserToken(port, token):
