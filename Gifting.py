@@ -4,6 +4,8 @@ import requests
 from UserToken import getUserToken, console_login, deleteAuth
 from ClientToken import getEndpoint
 from CredentialParser import getCreds
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # masterwork chest bundle itemId=69900088
 # rp 225
 # masterwork chest itemId=224
@@ -63,10 +65,11 @@ if __name__ == "__main__":
             resp = giftUser(usr, pwd, 77131806)
             print(resp.json())
             time.sleep(1)
-            c += 1
+            if resp.status_code == '200':
+                c += 1
         except:
             print('something went wrong')
-        if c == 7:
-            print('gifting done')
-            exit(0)
+        # if c == 7:
+        #     print('gifting done')
+        #     exit(0)
 
