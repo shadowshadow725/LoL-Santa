@@ -1,3 +1,4 @@
+import time
 
 import requests
 from UserToken import getUserToken, console_login, deleteAuth
@@ -36,15 +37,12 @@ def createGiftHeader(token):
 def giftUser(usr, pwd, target_summonerid):
     url = "https://na.store.leagueoflegends.com/storefront/v3/gift?language=en_US"
     port, auth, pid = getEndpoint()
-    print('client port', port)
     deleteAuth(port, auth)
     login_response = console_login(port, auth, usr, pwd)
-    print(login_response)
     accountid = login_response['currentAccountId']
 
     token = getUserToken(port, auth)
     user_token = token['token']
-    print(user_token)
     giftBody = createGiftBody(69900366, 250, target_summonerid, accountid)
     giftHeader = createGiftHeader(user_token)
     response = requests.post(url, json=giftBody, verify=False, headers=giftHeader)
@@ -62,11 +60,13 @@ if __name__ == "__main__":
     creds = getCreds('message.txt')
     for usr, pwd in creds:
         try:
-            giftUser(usr, pwd, 77131806)
+            resp = giftUser(usr, pwd, 77131806)
+            print(resp.json())
+            time.sleep(1)
             c += 1
         except:
             print('something went wrong')
-        if c == 9:
+        if c == 7:
             print('gifting done')
             exit(0)
 
