@@ -55,5 +55,10 @@ def getEndpoint():
     # print(port, base64_bytes)
     return port, base64_bytes, pid
 
-
+def getGamePid():
+    command = "Get-Process 'League of Legends' | format-list *"
+    args = str(subprocess.run(["powershell", "-Command", command], capture_output=True))
+    pid = re.findall(r"Id                         : \d\d\d\d\d", args)[0]
+    pid = pid.replace('Id                         : ', '')
+    return int(pid)
 

@@ -53,3 +53,47 @@ def startLeagueClient(port, token):
     response = requests.post(url, headers=header, timeout=2.5, verify=False)
     return response.status_code
 
+
+def enterLobby(port, token):
+    url = 'https://127.0.0.1:' + port + '/lol-lobby/v2/lobby'
+    header = getHeader(port, token)
+    body = {"queueId": 1090}
+
+    response = requests.post(url, headers=header, timeout=2.5, verify=False, json=body)
+    return response.status_code
+
+
+def startQueue(port, token):
+    url = 'https://127.0.0.1:' + port + '/lol-lobby/v2/lobby/matchmaking/search'
+    header = getHeader(port, token)
+    body = {}
+    response = requests.post(url, headers=header, timeout=2.5, verify=False, json=body)
+    return response.status_code
+
+def acceptGame(port, token):
+    url = 'https://127.0.0.1:' + port + '/lol-matchmaking/v1/ready-check/accept'
+    header = getHeader(port, token)
+    body = {}
+    response = requests.post(url, headers=header, timeout=2.5, verify=False, json=body)
+    return response.status_code
+
+def checkSearchState(port, token):
+    url = 'https://127.0.0.1:' + port + '/lol-lobby/v2/lobby/matchmaking/search-state'
+    header = getHeader(port, token)
+    response = requests.get(url, headers=header, timeout=2.5, verify=False)
+    if not response:
+        return 'error'
+    return response.json()["searchState"]
+
+def ifGameEnd(port, token):
+    url = 'https://127.0.0.1:2999/liveclientdata/activeplayer'
+    header = getHeader(port, token)
+    try:
+        response = requests.post(url, headers=header, timeout=2.5, verify=False)
+    except:
+        return True
+    if response:
+        body = response.json()
+        if body["championStats"]["currentHealth"] < 1.0:
+            return True
+    return False
